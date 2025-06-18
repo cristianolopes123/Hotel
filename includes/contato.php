@@ -27,6 +27,23 @@
       color: #005051;
       margin-bottom: 10px;
     }
+/* Animação ao passar o mouse nas caixas de contato */
+.bloco-info {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bloco-info:hover {
+  background-color: #fef3e3;
+  transform: translateY(-2px);
+}
+
+/* Realce dos inputs, selects e textarea ao foco */
+input:focus,
+select:focus,
+textarea:focus {
+  border: 2px solid #F28D00;
+  outline: none;
+}
 
     .subtitulo {
       text-align: center;
