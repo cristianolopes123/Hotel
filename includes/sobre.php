@@ -6,10 +6,13 @@
   <title>Sobre o Hotel Mucinga Nzambi</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  
+  <!-- Estilos da Navegação -->
+  <?php include 'navbar-styles.php'; ?>
+  
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
       background: linear-gradient(to bottom, #ffffff, #fdf7e6);
       color: #005051;
     }
@@ -98,218 +101,176 @@
 
     .comodidades li {
       list-style: none;
+      padding: 8px 0;
       position: relative;
-      padding-left: 20px;
+      padding-left: 25px;
     }
 
-    .comodidades li::before {
-      content: "\f111";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      color: #F28D00;
+    .comodidades li:before {
+      content: "✓";
       position: absolute;
       left: 0;
-      font-size: 8px;
-      top: 7px;
+      color: #F28D00;
+      font-weight: bold;
     }
 
-    .estat-box {
+    .estatistica-item {
       background: white;
+      padding: 20px;
       border-radius: 10px;
-      padding: 15px;
       text-align: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s, background 0.3s;
     }
 
-    .estat-box:hover {
-      background: #f4f4f4;
-      transform: translateY(-5px);
-    }
-
-    .estat-box i {
-      font-size: 24px;
-      color: #F28D00;
-      margin-bottom: 10px;
-    }
-
-    .estat-box .numero {
-      font-size: 22px;
+    .estatistica-numero {
+      font-size: 2.5rem;
       font-weight: 700;
-      color: #005051;
+      color: #F28D00;
+      display: block;
     }
 
-    .estat-box .descricao {
-      font-size: 13px;
-      color: #444;
+    .estatistica-texto {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 5px;
     }
 
-    .localizacao {
+    .missao-valores {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
-      margin-top: 50px;
-      align-items: flex-start;
+      margin-top: 40px;
     }
 
-    .local-info {
-      flex: 1 1 50%;
-    }
-
-    .local-info h2 {
-      font-size: 22px;
-      color: #005051;
-    }
-
-    .local-info p {
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .local-info i {
-      color: #F28D00;
-      margin-right: 8px;
-    }
-
-    .mapa {
+    .missao, .valores {
       flex: 1 1 45%;
-      position: relative;
-    }
-
-    .mapa iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
+      background: white;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    .mapa button {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: #F28D00;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
+    .valores ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .valores li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .valores li:last-child {
+      border-bottom: none;
     }
 
     @media (max-width: 768px) {
       .historia-container,
-      .localizacao,
       .comodidades-estatisticas,
-      .estatisticas {
+      .missao-valores {
         flex-direction: column;
       }
-
-      .comodidades ul {
+      
+      .estatisticas {
         grid-template-columns: 1fr;
       }
-
-      .estatisticas {
+      
+      .comodidades ul {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- Incluir Navegação -->
+  <?php include 'navbar.php'; ?>
+
   <div class="container">
     <h1>Sobre o Hotel Mucinga Nzambi</h1>
-    <p class="subtitulo">Há mais de duas décadas oferecendo hospitalidade excepcional no coração de Luanda,<br>combinando tradição angolana com luxo internacional.</p>
+    <p class="subtitulo">Descubra nossa história e compromisso com a excelência</p>
 
-    <div class="section historia-container">
-      <div class="historia-text">
-        <h2>Nossa História</h2>
-        <p>Fundado em 1998, o Hotel Mucinga Nzambi nasceu do sonho de criar um refúgio de luxo que celebrasse a rica cultura angolana. Localizado estrategicamente no centro de Luanda, nosso hotel se tornou um marco de hospitalidade e elegância.</p>
-        <p>Com arquitetura que mistura elementos contemporâneos e tradicionais, oferecemos uma experiência única que reflete o melhor de Angola para visitantes de todo o mundo.</p>
-        <h2>Nossa Missão</h2>
-        <p>Proporcionar experiências inesquecíveis através de serviços excepcionais, acomodações luxuosas e um atendimento caloroso que reflete a essência da hospitalidade angolana, superando sempre as expectativas de nossos hóspedes.</p>
-      </div>
-      <div class="historia-img">
-        <img src="../img/pic.jpg" alt="Fachada do Hotel">
-      </div>
-    </div>
-
-    <div class="section comodidades-estatisticas">
-      <div class="comodidades-wrapper">
-        <h2>Comodidades do Hotel</h2>
-        <ul class="comodidades">
-          <li>Restaurante Gourmet</li>
-          <li>Spa & Wellness Center</li>
-          <li>Salas de Conferência</li>
-          <li>Wifi Gratuito</li>
-          <li>Serviço de Quarto 24h</li>
-          <li>Centro de Negócios</li>
-          <li>Piscina Infinity</li>
-          <li>Centro de Fitness</li>
-          <li>Concierge 24h</li>
-          <li>Estacionamento Valet</li>
-          <li>Bar no Terraço</li>
-          <li>Transfer Aeroporto</li>
-        </ul>
-      </div>
-      <div class="estatisticas">
-        <div class="estat-box">
-          <i class="fas fa-calendar-check"></i>
-          <div class="numero">25+</div>
-          <div class="descricao">Anos de Experiência</div>
+    <div class="section">
+      <h2>Nossa História</h2>
+      <div class="historia-container">
+        <div class="historia-text">
+          <p>Fundado em 1998, o Hotel Mucinga Nzambi nasceu da visão de criar um espaço de hospedagem que combinasse o luxo internacional com a calorosa tradição angolana. Localizado no coração de Luanda, nosso hotel tem sido um marco de excelência na hospitalidade por mais de 25 anos.</p>
+          <p>O nome "Mucinga Nzambi" significa "Presente de Deus" em kimbundu, refletindo nossa missão de oferecer uma experiência divina aos nossos hóspedes. Desde a sua inauguração, o hotel tem sido palco de importantes eventos políticos, empresariais e culturais da capital angolana.</p>
+          <p>Com uma equipe dedicada e apaixonada, continuamos a evoluir e inovar, sempre mantendo os mais altos padrões de qualidade e serviço que nos tornaram referência em Luanda.</p>
         </div>
-        <div class="estat-box">
-          <i class="fas fa-user-group"></i>
-          <div class="numero">50K+</div>
-          <div class="descricao">Hóspedes Satisfeitos</div>
-        </div>
-        <div class="estat-box">
-          <i class="fas fa-award"></i>
-          <div class="numero">15+</div>
-          <div class="descricao">Prêmios Recebidos</div>
-        </div>
-        <div class="estat-box">
-          <i class="fas fa-star"></i>
-          <div class="numero">4.9</div>
-          <div class="descricao">Avaliação Média</div>
+        <div class="historia-img">
+          <img src="../imagens/slide1.jpg" alt="Exterior do Hotel">
         </div>
       </div>
     </div>
 
-    <div class="section localizacao">
-      <div class="local-info">
-        <h2>Nossa Localização</h2>
-        <p><i class="fas fa-map-marker-alt"></i> Rua Major Kanhangulo, 100<br> Ingombota, Luanda, Angola</p>
-        <p><i class="fas fa-phone"></i> +244 923 456 789<br>+244 923 456 790</p>
-        <p><i class="fas fa-envelope"></i> info@hotelmucinga.ao<br> reservas@hotelmucinga.ao</p>
-        <p><i class="fas fa-clock"></i> Check-in: 15:00 | Check-out: 12:00</p>
+    <div class="section">
+      <h2>Comodidades e Estatísticas</h2>
+      <div class="comodidades-estatisticas">
+        <div class="comodidades-wrapper">
+          <h3>Nossas Comodidades</h3>
+          <div class="comodidades">
+            <ul>
+              <li>150 quartos e suítes luxuosas</li>
+              <li>Restaurante gourmet com culinária local e internacional</li>
+              <li>Spa e centro de bem-estar completo</li>
+              <li>Piscina ao ar livre com vista para a cidade</li>
+              <li>Centro de fitness 24 horas</li>
+              <li>Salas de conferência e eventos</li>
+              <li>Concierge 24 horas</li>
+              <li>Serviço de transfer para o aeroporto</li>
+              <li>Wi-Fi gratuito em todas as áreas</li>
+              <li>Estacionamento seguro</li>
+            </ul>
+          </div>
+        </div>
+        <div class="estatisticas">
+          <div class="estatistica-item">
+            <span class="estatistica-numero">150</span>
+            <span class="estatistica-texto">Quartos e Suítes</span>
+          </div>
+          <div class="estatistica-item">
+            <span class="estatistica-numero">25</span>
+            <span class="estatistica-texto">Anos de Experiência</span>
+          </div>
+          <div class="estatistica-item">
+            <span class="estatistica-numero">98%</span>
+            <span class="estatistica-texto">Satisfação dos Hóspedes</span>
+          </div>
+          <div class="estatistica-item">
+            <span class="estatistica-numero">24h</span>
+            <span class="estatistica-texto">Serviço Disponível</span>
+          </div>
+        </div>
       </div>
-      <div class="mapa">
-        <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.8031550384317!2d13.240197774945413!3d-8.816733891173132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f3ff5c83cd8f%3A0x1e2e32813f236353!2sLuanda%2C%20Angola!5e0!3m2!1spt-PT!2sao!4v1718735804081!5m2!1spt-PT!2sao" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <button onclick="obterRotas()">Obter Rotas</button>
+    </div>
+
+    <div class="section">
+      <h2>Missão e Valores</h2>
+      <div class="missao-valores">
+        <div class="missao">
+          <h3>Nossa Missão</h3>
+          <p>Proporcionar experiências memoráveis aos nossos hóspedes, oferecendo serviços de excelência em um ambiente sofisticado e acolhedor, contribuindo para o desenvolvimento do turismo em Angola.</p>
+        </div>
+        <div class="valores">
+          <h3>Nossos Valores</h3>
+          <ul>
+            <li><strong>Excelência:</strong> Buscamos sempre a perfeição em tudo que fazemos</li>
+            <li><strong>Hospitalidade:</strong> Tratamos cada hóspede como família</li>
+            <li><strong>Inovação:</strong> Constantemente melhoramos nossos serviços</li>
+            <li><strong>Sustentabilidade:</strong> Comprometidos com o meio ambiente</li>
+            <li><strong>Comunidade:</strong> Valorizamos e apoiamos nossa comunidade local</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <script>
-    const numeros = document.querySelectorAll('.numero');
-    numeros.forEach((num) => {
-      const final = +num.textContent.replace(/\D/g, '');
-      let atual = 0;
-      const incremento = Math.ceil(final / 100);
-      const animar = setInterval(() => {
-        atual += incremento;
-        if (atual >= final) {
-          num.textContent = num.textContent.includes('K') ? final + 'K+' : final + (num.textContent.includes('.') ? '' : '+');
-          clearInterval(animar);
-        } else {
-          num.textContent = atual;
-        }
-      }, 30);
-    });
 
-    function obterRotas() {
-      const url = 'https://www.google.com/maps/dir/?api=1&destination=-8.816733891173132,13.240197774945413';
-      window.open(url, '_blank');
-    }
-  </script>
+  <!-- Incluir Footer -->
+  <?php include 'footer-styles.php'; ?>
+  <?php include 'footer-common.php'; ?>
+
+  <!-- Scripts Comuns -->
+  <?php include 'common-scripts.php'; ?>
 </body>
 </html>

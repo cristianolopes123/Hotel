@@ -6,10 +6,13 @@
   <title>Contato - Hotel Mucinga Nzambi</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  
+  <!-- Estilos da Navegação -->
+  <?php include 'navbar-styles.php'; ?>
+  
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
       background-color: #FDF7E6;
       color: #005051;
     }
@@ -27,23 +30,6 @@
       color: #005051;
       margin-bottom: 10px;
     }
-/* Animação ao passar o mouse nas caixas de contato */
-.bloco-info {
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.bloco-info:hover {
-  background-color: #fef3e3;
-  transform: translateY(-2px);
-}
-
-/* Realce dos inputs, selects e textarea ao foco */
-input:focus,
-select:focus,
-textarea:focus {
-  border: 2px solid #F28D00;
-  outline: none;
-}
 
     .subtitulo {
       text-align: center;
@@ -73,6 +59,13 @@ textarea:focus {
       display: flex;
       align-items: flex-start;
       gap: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .bloco-info:hover {
+      background-color: #fef3e3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .bloco-info i {
@@ -100,115 +93,78 @@ textarea:focus {
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .formulario h2 {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
-
-    .formulario p {
-      font-size: 14px;
+    .formulario h3 {
       margin-bottom: 20px;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
+      color: #005051;
     }
 
     .form-group {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+      margin-bottom: 20px;
     }
 
-    label {
-      font-size: 14px;
+    .form-group label {
+      display: block;
       margin-bottom: 5px;
-    }
-
-    input, select, textarea {
-      padding: 10px 12px;
-      border: 1px solid #005051;
-      border-radius: 6px;
-      font-size: 14px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    textarea {
-      height: 120px;
-      resize: none;
-    }
-
-    .btn {
-      background: #F28D00;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.3s ease;
-    }
-
-    .btn i {
-      font-size: 16px;
-    }
-
-    .btn:hover {
-      background: #d67c00;
-    }
-
-    .rodape-ajuda {
-      background: linear-gradient(to right, #005051, #F28D00);
-      color: white;
-      padding: 25px;
-      text-align: center;
-      margin-top: 30px;
-      border-radius: 8px;
-    }
-
-    .rodape-ajuda h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .rodape-ajuda p {
-      margin-bottom: 15px;
-    }
-
-    .rodape-ajuda button {
-      background: white;
+      font-weight: 600;
       color: #005051;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border: 2px solid #F28D00;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(242, 141, 0, 0.1);
+    }
+
+    .btn-enviar {
+      background: linear-gradient(135deg, #F28D00 0%, #FFA726 100%);
+      color: white;
+      padding: 12px 30px;
       border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
+      border-radius: 25px;
       font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(242, 141, 0, 0.3);
+    }
+
+    .btn-enviar:hover {
+      background: linear-gradient(135deg, #FFA726 0%, #F28D00 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(242, 141, 0, 0.4);
     }
 
     @media (max-width: 768px) {
       .contato {
         flex-direction: column;
       }
-
-      .form-row {
-        flex-direction: column;
+      
+      .formulario {
+        order: -1;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- Incluir Navegação -->
+  <?php include 'navbar.php'; ?>
+
   <div class="container">
     <h1>Entre em Contato</h1>
-    <p class="subtitulo">Estamos prontos para ajudá-lo a planejar sua estadia perfeita. Entre em contato conosco através de qualquer um dos canais abaixo.</p>
+    <p class="subtitulo">Estamos aqui para ajudar. Entre em contato conosco!</p>
 
     <div class="contato">
       <div class="blocos-laterais">
@@ -216,7 +172,7 @@ textarea:focus {
           <i class="fas fa-location-dot"></i>
           <div class="info-text">
             <h3>Endereço</h3>
-            <p>Rua Major Kanhangulo, 100<br>Ingomobota, Luanda<br>Angola</p>
+            <p>Rua Major Kanhangulo, 100<br>Luanda, Angola</p>
           </div>
         </div>
 
@@ -224,7 +180,7 @@ textarea:focus {
           <i class="fas fa-phone"></i>
           <div class="info-text">
             <h3>Telefone</h3>
-            <p>+244 923 456 789<br>+244 923 456 790<br>WhatsApp: +244 923 456 789</p>
+            <p>+244 923 456 789<br>+244 923 456 790</p>
           </div>
         </div>
 
@@ -232,76 +188,85 @@ textarea:focus {
           <i class="fas fa-envelope"></i>
           <div class="info-text">
             <h3>Email</h3>
-            <p>info@hotelmucinga.ao<br>reservas@hotelmucinga.ao<br>eventos@hotelmucinga.ao</p>
+            <p>info@hotelmucinga.ao<br>reservas@hotelmucinga.ao</p>
           </div>
         </div>
 
         <div class="bloco-info">
           <i class="fas fa-clock"></i>
           <div class="info-text">
-            <h3>Horário de Atendimento</h3>
-            <p>Recepção: 24h<br>Restaurante: 06:00 - 23:00<br>Spa: 09:00 - 21:00</p>
+            <h3>Horário de Funcionamento</h3>
+            <p>Check-in: 14:00<br>Check-out: 12:00</p>
           </div>
         </div>
       </div>
 
       <div class="formulario">
-        <h2>Envie sua Mensagem</h2>
-        <p>Preencha o formulário abaixo e retornaremos o mais breve possível.</p>
-
-        <form onsubmit="return enviarMensagem()">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nome Completo *</label>
-              <input type="text" required placeholder="Seu nome completo">
-            </div>
-            <div class="form-group">
-              <label>Email *</label>
-              <input type="email" required placeholder="seu@email.com">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Telefone</label>
-              <input type="text" placeholder="+244 923 456 789">
-            </div>
-            <div class="form-group">
-              <label>Assunto *</label>
-              <select required>
-                <option value="">Selecione um assunto</option>
-                <option value="reserva">Reserva</option>
-                <option value="eventos">Eventos</option>
-                <option value="outros">Outros</option>
-              </select>
-            </div>
+        <h3>Envie sua Mensagem</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" required>
           </div>
 
           <div class="form-group">
-            <label>Mensagem *</label>
-            <textarea required placeholder="Descreva sua solicitação ou dúvida..."></textarea>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
           </div>
 
-          <br>
-          <button type="submit" class="btn">
-            <i class="fas fa-paper-plane"></i> Enviar Mensagem
-          </button>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone">
+          </div>
+
+          <div class="form-group">
+            <label for="assunto">Assunto *</label>
+            <select id="assunto" name="assunto" required>
+              <option value="">Selecione um assunto</option>
+              <option value="reserva">Reserva</option>
+              <option value="informacao">Informação</option>
+              <option value="reclamacao">Reclamação</option>
+              <option value="sugestao">Sugestão</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-enviar">Enviar Mensagem</button>
         </form>
       </div>
     </div>
-
-    <div class="rodape-ajuda">
-      <h3>Precisa de Ajuda Imediata?</h3>
-      <p>Nossa equipe está disponível 24 horas para atendê-lo</p>
-      <button><i class="fas fa-phone"></i> Ligar Agora</button>
-    </div>
   </div>
 
+  <!-- Incluir Footer -->
+  <?php include 'footer-styles.php'; ?>
+  <?php include 'footer-common.php'; ?>
+
+  <!-- Scripts Comuns -->
+  <?php include 'common-scripts.php'; ?>
+
+  <!-- Script específico do formulário -->
   <script>
-    function enviarMensagem() {
-      alert("Mensagem enviada com sucesso!");
-      return false;
-    }
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const assunto = document.getElementById('assunto').value;
+      const mensagem = document.getElementById('mensagem').value;
+      
+      if(nome && email && assunto && mensagem) {
+        alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
+        document.getElementById('contactForm').reset();
+      } else {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+      }
+    });
   </script>
 </body>
 </html>
