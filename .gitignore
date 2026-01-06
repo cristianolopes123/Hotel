@@ -1,0 +1,6 @@
+# Ignorar todos os PDFs
+*.pdf
+
+# (opcional) se você usa pastas específicas de PDFs:
+storage/pdfs/
+pdf/
