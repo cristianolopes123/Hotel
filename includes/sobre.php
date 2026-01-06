@@ -1,3 +1,17 @@
+<?php
+/**
+ * Página Sobre
+ * Hotel Mucinga Nzambi
+ */
+
+define('SYSTEM_ACCESS', true);
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/rbac.php';
+require_once __DIR__ . '/helpers.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
